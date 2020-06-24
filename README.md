@@ -13,6 +13,13 @@ This sample can be installed onto WAS Liberty runtime versions 8.5.5.6 and later
 
 ## Getting Started
 
+```
+$ mvn install -q exec:exec -Dexec.executable=echo -Dexec.args="%classpath" > classpath.txt
+$ docker build -t daytrader .
+$ docker run -it --rm -p 9080:9082 daytrader
+
+```
+
 Browse the code to see what it does, or build and run it yourself:
 * [Building and running on the command line](/docs/Using-cmd-line.md)
 * [Building and running using Eclipse and WebSphere Development Tools (WDT)](/docs/Using-WDT.md)
