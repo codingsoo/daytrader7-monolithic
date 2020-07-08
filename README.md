@@ -14,10 +14,12 @@ This sample can be installed onto WAS Liberty runtime versions 8.5.5.6 and later
 ## Getting Started
 
 ```
-$ mvn install -q exec:exec -Dexec.executable=echo -Dexec.args="%classpath" > classpath.txt
-$ docker build -t daytrader .
-$ docker run -it --rm -p 9080:9082 daytrader
-
+$ docker build -t daytrader-env .
+$ docker run -it -p 9080:9082 daytrader7monolithic:9 /bin/bash
+$ cd daytrader7-monolithic
+$ mvn install
+$ export WLP_USER_DIR=$(pwd)/daytrader-ee7-wlpcfg
+$ ./daytrader-ee7/target/liberty/wlp/bin/server start daytrader7Sample
 ```
 
 Browse the code to see what it does, or build and run it yourself:
@@ -25,7 +27,7 @@ Browse the code to see what it does, or build and run it yourself:
 * [Building and running using Eclipse and WebSphere Development Tools (WDT)](/docs/Using-WDT.md)
 * [Downloading WAS Liberty](/docs/Downloading-WAS-Liberty.md)
 
-Once the server has been started, go to [http://localhost:9082/daytrader](http://localhost:9082/daytrader) to interact with the sample.
+Once the server has been started, go to [http://localhost:9080/daytrader](http://localhost:9080/daytrader) to interact with the sample.
 
 ## Notice
 
